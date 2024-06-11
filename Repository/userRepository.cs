@@ -61,7 +61,10 @@ namespace FinalProjectPSD.Repository
             return (from x in db.Users where x.UserID.Equals(id) select x.UserRole).FirstOrDefault();
         }
 
-
+        public static List<User> getUserList()
+        {
+            return (from x in db.Users select x).ToList();
+        }
 
 
         public static int getLastId()

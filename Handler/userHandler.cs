@@ -46,5 +46,10 @@ namespace FinalProjectPSD.Handler
             return userRepository.getRoleFromId(id);
         }
 
+        public static List<User> getUserList()
+        {
+            return userRepository.getUserList();
+        }
+
     }
 }

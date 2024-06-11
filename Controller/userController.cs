@@ -1,4 +1,5 @@
 ﻿using FinalProjectPSD.Handler;
+using FinalProjectPSD.Models;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,10 @@ namespace FinalProjectPSD.Controller
         public string getRoleFromId(int id)
         {
             return userHandler.getRoleFromId(id);
+        }
+        public  List<User> getUserList()
+        {
+            return userHandler.getUserList();
         }
 
     }
