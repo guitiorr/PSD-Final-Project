@@ -22,7 +22,7 @@
             <asp:CheckBox ID="RememberCB" runat="server" Text="REMEMBER ME" />
         </div>
         <div>
-            <asp:LinkButton ID="RegisterBtn" runat="server" Text="GAPUNYA AKUN??? REGISTER YUKKK" OnClick="RegisterBtn_Click">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="RegisterBtn" runat="server" Text="GAPUNYA AKUN??? REGISTER YUKKK" OnClick="RegisterBtn_Click">GAPUNYA AKUN??? REGISTER YUKKK</asp:LinkButton>
         </div>
         <div>
             <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click"/>

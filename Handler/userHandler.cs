@@ -26,9 +26,9 @@ namespace FinalProjectPSD.Handler
             return userRepository.checkEmail(email);
         }
 
-        public static void insertUser(int userId, string Username, DateTime UserDOB, string UserGender, string UserRole, string UserPassword)
+        public static void insertUser(int userId, string Username, DateTime UserDOB, string UserGender, string UserRole, string UserPassword, string userEmail)
         {
-            userRepository.insertUser(userId, Username, UserDOB, UserGender, UserRole, UserPassword);
+            userRepository.insertUser(userId, Username, UserDOB, UserGender, UserRole, UserPassword, userEmail);
         }
 
         public static int getLastId()

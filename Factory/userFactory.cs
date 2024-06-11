@@ -9,7 +9,7 @@ namespace FinalProjectPSD.Factory
     public class userFactory
     {
 
-        public static User create(int userId, string Username, DateTime UserDOB, string UserGender, string UserRole, string UserPassword)
+        public static User create(int userId, string Username, DateTime UserDOB, string UserGender, string UserRole, string UserPassword, string userEmail)
         {
             User users = new User();
             users.UserID = userId;
@@ -18,6 +18,7 @@ namespace FinalProjectPSD.Factory
             users.UserGender = UserGender;
             users.UserRole = UserRole;
             users.UserPassword = UserPassword;
+            users.UserEmail = userEmail;
             return users;
         }
 

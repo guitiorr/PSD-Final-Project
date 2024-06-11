@@ -43,7 +43,7 @@
             <asp:Label ID="DOBErrorLbl" runat="server" Text=""></asp:Label>
         </div>
         <div>
-            <asp:LinkButton ID="LoginLink" runat="server" Text="PUNYA AKUN? LOGIN COY" OnClick="LoginLink_Click">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="LoginLink" runat="server" Text="PUNYA AKUN? LOGIN COY" OnClick="LoginLink_Click">PUNYA AKUN? LOGIN COY</asp:LinkButton>
         </div>
         <div>
             <asp:Button ID="SubmitBtn" runat="server" Text="Register" OnClick="SubmitBtn_Click"/>

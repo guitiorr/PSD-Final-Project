@@ -41,27 +41,23 @@ namespace FinalProjectPSD.Views
 
             int userId = generateUserID();
 
-            DateTime UserDOB = Convert.ToDateTime(DOB);
-
-            if(pass == 1)
+            if (pass == 1)
             {
-                userCont.insertUser(userId, Username, UserDOB, Gender, "Customer", Password);
-
-
+                DateTime UserDOB = Convert.ToDateTime(DOB);
+                userCont.insertUser(userId, Username, UserDOB, Gender, "Customer", Password, Email);
                 Response.Redirect("~/Views/LoginPage.aspx");
             }
-
-
         }
+
 
         private int generateUserID()
         {
             userController userCont = new userController();
 
             int newId = 0;
-            var lastId = userCont.getLastId();
+            int lastId = userCont.getLastId();
 
-            if (lastId == null)
+            if (lastId == 0)
             {
                 return 1;
             }
@@ -106,7 +102,6 @@ namespace FinalProjectPSD.Views
 
         private int validatePassword(string Password)
         {
-            userController userCont = new userController();
             if(Password == "")
             {
                 PasswordErrorLbl.Text = "Password must not be empty";
@@ -122,7 +117,6 @@ namespace FinalProjectPSD.Views
 
         private int validateGender(string Gender)
         {
-            userController userCont = new userController();
             if(Gender == "")
             {
                 GenderErrorLbl.Text = "Gender must not be empty";
@@ -144,9 +138,9 @@ namespace FinalProjectPSD.Views
         {
             userController userCont = new userController();
 
-            if (Email.EndsWith(".com")){
+            if (!(Email.EndsWith("Email must end with '.com'"))){
                 EmailErrorLbl.Text = "";
-                return 1;
+                return 0;
             }
             else if(Email == "")
             {
@@ -160,8 +154,8 @@ namespace FinalProjectPSD.Views
             }
             else
             {
-                EmailErrorLbl.Text = "Email must end with '.com'";
-                return 0;
+                EmailErrorLbl.Text = "";
+                return 1;
             }
 
         }
