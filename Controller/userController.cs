@@ -34,5 +34,15 @@ namespace FinalProjectPSD.Controller
             return userHandler.getLastId();
         }
 
+        public int getIdFromUsername(string username)
+        {
+            return userHandler.getIdFromUsername(username);
+        }
+
+        public string getRoleFromId(int id)
+        {
+            return userHandler.getRoleFromId(id);
+        }
+
     }
 }

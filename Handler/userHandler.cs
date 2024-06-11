@@ -36,5 +36,15 @@ namespace FinalProjectPSD.Handler
             return userRepository.getLastId();
         }
 
+        public static int getIdFromUsername(string username)
+        {
+            return userRepository.getIdFromUsername(username);
+        }
+
+        public static string getRoleFromId(int id)
+        {
+            return userRepository.getRoleFromId(id);
+        }
+
     }
 }

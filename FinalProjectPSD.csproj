@@ -103,6 +103,13 @@
     <Compile Include="Controller\userController.cs" />
     <Compile Include="Factory\userFactory.cs" />
     <Compile Include="Handler\userHandler.cs" />
+    <Compile Include="Layouts\NavBar.Master.cs">
+      <DependentUpon>NavBar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\NavBar.Master.designer.cs">
+      <DependentUpon>NavBar.Master</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs">
       <DependentUpon>MakeMeUpzzModel.tt</DependentUpon>
     </Compile>
@@ -165,6 +172,7 @@
     <Content Include="Models\MakeMeUpzzModel.edmx.diagram">
       <DependentUpon>MakeMeUpzzModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Layouts\NavBar.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

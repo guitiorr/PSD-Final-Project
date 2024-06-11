@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavBar.master.cs" Inherits="FinalProjectPSD.Layouts.NavBar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!--CUSTOMER-->
+        <asp:Button ID="OrderMakeupBtn" runat="server" Text="Order Makeup" />
+        <asp:Button ID="HistoryBtn" runat="server" Text="History" />
+
+        <!--ADMIN-->
+        <asp:Label ID="HomeBtn" runat="server" Text="Home"></asp:Label>
+        <asp:Label ID="ManageMakeupBtn" runat="server" Text="Manage Makeup"></asp:Label>
+        <asp:Label ID="OrderQueueBtn" runat="server" Text="Order Queue"></asp:Label>
+        <asp:Label ID="TransactionReportBtn" runat="server" Text="Transaction Report"></asp:Label>
+
+        <!--BOTH-->
+        <asp:Button ID="ProfileBtn" runat="server" Text="Profile" />
+        <asp:Label ID="LogoutBtn" runat="server" Text="Logout"></asp:Label>
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

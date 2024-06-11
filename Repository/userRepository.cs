@@ -51,8 +51,15 @@ namespace FinalProjectPSD.Repository
             }
         }
 
+        public static int getIdFromUsername(string username)
+        {
+            return (from x in db.Users where x.Username.Equals(username) select x.UserID).FirstOrDefault();
+        }
 
-
+        public static string getRoleFromId(int id)
+        {
+            return (from x in db.Users where x.UserID.Equals(id) select x.UserRole).FirstOrDefault();
+        }
 
 
 

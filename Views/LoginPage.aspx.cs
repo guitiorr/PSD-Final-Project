@@ -54,25 +54,29 @@ namespace FinalProjectPSD.Views
                 PasswordErrorLbl.Text = "Wrong password!";
             }
 
+
+            HttpCookie userCookie = new HttpCookie("userCookie");
+            userCookie["Username"] = username;
+            userCookie["Password"] = password;
+
+            int id = userCont.getIdFromUsername(username);
+
             if (RememberCB.Checked)
             {
-                HttpCookie userCookie = new HttpCookie("userCookie");
-                userCookie["Username"] = username;
-                userCookie["Password"] = password;
                 userCookie.Expires = DateTime.Now.AddDays(7);
-                Response.Cookies.Add(userCookie);
             }
             else
             {
-                HttpCookie userCookie = new HttpCookie("userCookie");
-                userCookie["Username"] = username;
-                userCookie["Password"] = password;
                 userCookie.Expires = DateTime.Now.AddDays(-1);
-                Response.Cookies.Add(userCookie);
             }
 
+            string userRole = userCont.getRoleFromId(id);
+            userCookie["Role"] = userRole;
 
-            if(pass == 1)
+            Response.Cookies.Add(userCookie);
+
+
+            if (pass == 1)
             {
 
             }
