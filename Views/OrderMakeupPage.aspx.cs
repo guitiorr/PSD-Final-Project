@@ -67,6 +67,7 @@ namespace FinalProjectPSD.Views
         {
             userController userCont = new userController();
             cartController cartCont = new cartController();
+            transactionDetailController transCont = new transactionDetailController();
 
             Button btnOrder = (Button)sender;
             GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
@@ -102,9 +103,11 @@ namespace FinalProjectPSD.Views
             if (pass == 1)
             {
                 int CartID = generateCartID();
+                int transactionDetailID = generateTransactionDetailID();
                 int UserID = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
                 cartCont.insertCart(CartID, UserID, makeupID, quantity);
+                transCont.insertTransactionDetail(transactionDetailID, makeupID, quantity);
 
                 Response.Redirect("~/Views/OrderMakeupPage.aspx");
             }
@@ -131,6 +134,26 @@ namespace FinalProjectPSD.Views
                 return newId;
             }
         }
+
+        private int generateTransactionDetailID()
+        {
+
+            transactionDetailController transCont = new transactionDetailController();
+
+            int newId = 0;
+            int lastId = transCont.getLastId();
+
+            if (lastId == 0)
+            {
+                return 600;
+            }
+            else
+            {
+                newId = lastId + 1;
+                return newId;
+            }
+        }
+
 
         protected void CartGV_RowDataBound(object sender, GridViewRowEventArgs e)
         {

@@ -71,7 +71,14 @@ namespace FinalProjectPSD.Layouts
 
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
+            if (Request.Cookies["userCookie"] != null)
+            {
+                HttpCookie authCookie = new HttpCookie("userCookie");
+                authCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(authCookie);
+            }
 
+            Response.Redirect("~/Views/HomePage.aspx");
         }
 
         protected void OrderMakeupBtn_Click(object sender, EventArgs e)
