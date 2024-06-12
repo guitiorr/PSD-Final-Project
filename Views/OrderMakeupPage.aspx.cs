@@ -4,8 +4,10 @@ using FinalProjectPSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,6 +21,7 @@ namespace FinalProjectPSD.Views
             string userRole = Request.Cookies["userCookie"]["Role"];
             userController userCont = new userController();
             makeupsController makeupCont = new makeupsController();
+            cartController cartCont = new cartController();
             if (userRole.Equals("Customer"))
             {
                 if (!IsPostBack)
@@ -38,10 +41,109 @@ namespace FinalProjectPSD.Views
 
                     MakeupDataGV.DataSource = makeupList ;
                     MakeupDataGV.DataBind();
+
+
+                    CartGV.Visible = true;
+
+                    int userId = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+
+                    IQueryable<Cart> cartQuery = cartCont.getCartListFilterUserID(userId).AsQueryable();
+
+                    List<Cart> cartList = cartQuery
+                        .Include(c => c.Makeup.MakeupName)
+                        .ToList();
+
+                    CartGV.DataSource = cartList;
+                    CartGV.DataBind();
+
+
+
+
                 }
             }
         }
 
+        protected void OrderBtn_Click(object sender, EventArgs e)
+        {
+            userController userCont = new userController();
+            cartController cartCont = new cartController();
 
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            TextBox QuantityTB = (TextBox)row.FindControl("QuantityTB");
+            Label QuantityErrorLbl = (Label)row.FindControl("QuantityErrorLbl");
+            int makeupID = Convert.ToInt32(btnOrder.CommandArgument);
+            int quantity = Convert.ToInt32(QuantityTB.Text);
+            int pass = 0;
+
+
+            if (string.IsNullOrWhiteSpace(QuantityTB.Text))
+            {
+                QuantityErrorLbl.Text = "Quantity cannot be empty";
+            }
+            else if (!int.TryParse(QuantityTB.Text, out quantity))
+            {
+                QuantityErrorLbl.Text = "Quantity must be a valid number";
+            }
+            else if (quantity <= 0)
+            {
+                QuantityErrorLbl.Text = "Quantity must be larger than 0";
+            }
+            else
+            {
+                QuantityErrorLbl.Text = "";
+                pass = 1;
+            }
+
+
+            if (pass == 1)
+            {
+                int CartID = generateCartID();
+                int UserID = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+
+                cartCont.insertCart(CartID, UserID, makeupID, quantity);
+
+                Response.Redirect("~/Views/OrderMakeupPage.aspx");
+            }
+
+
+
+        }
+
+        private int generateCartID()
+        {
+
+            cartController cartCont = new cartController();
+
+            int newId = 0;
+            int lastId = cartCont.getLastId();
+
+            if (lastId == 0)
+            {
+                return 500;
+            }
+            else
+            {
+                newId = lastId + 1;
+                return newId;
+            }
+        }
+
+        protected void CartGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int itemNumber = e.Row.RowIndex + 1;
+                e.Row.Cells[0].Text = itemNumber.ToString();
+            }
+        }
+
+        protected void clearCartBtn_Click(object sender, EventArgs e)
+        {
+            cartController cartCont = new cartController();
+
+            cartCont.clearCart();
+            Response.Redirect("~/Views/OrderMakeupPage.aspx");
+        }
     }
 }
