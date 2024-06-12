@@ -26,6 +26,7 @@ namespace FinalProjectPSD.Models
         public int MakeupWeight { get; set; }
         public int MakeupTypeID { get; set; }
         public int MakeupBrandID { get; set; }
+        public int MakeupPrice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }

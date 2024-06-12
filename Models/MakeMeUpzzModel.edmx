@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carts">
           <Key>
             <PropertyRef Name="CartID" />
@@ -31,6 +31,7 @@
           <Property Name="MakeupWeight" Type="int" Nullable="false" />
           <Property Name="MakeupTypeID" Type="int" Nullable="false" />
           <Property Name="MakeupBrandID" Type="int" Nullable="false" />
+          <Property Name="MakeupPrice" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MakeupTypes">
           <Key>
@@ -190,8 +191,7 @@
             <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MakeMeUpzzDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -228,6 +228,7 @@
           <NavigationProperty Name="MakeupBrand" Relationship="Self.FK_Makeups_ToMakeupBrands" FromRole="Makeups" ToRole="MakeupBrands" />
           <NavigationProperty Name="MakeupType" Relationship="Self.FK_Makeups_ToMakeupType" FromRole="Makeups" ToRole="MakeupTypes" />
           <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_ToMakeups" FromRole="Makeups" ToRole="TransactionDetails" />
+          <Property Name="MakeupPrice" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MakeupType">
           <Key>
@@ -422,6 +423,7 @@
           <EntitySetMapping Name="Makeups">
             <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.Makeup">
               <MappingFragment StoreEntitySet="Makeups">
+                <ScalarProperty Name="MakeupPrice" ColumnName="MakeupPrice" />
                 <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
                 <ScalarProperty Name="MakeupName" ColumnName="MakeupName" />
                 <ScalarProperty Name="MakeupWeight" ColumnName="MakeupWeight" />

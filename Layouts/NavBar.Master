@@ -10,19 +10,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!--CUSTOMER-->
-        <asp:Button ID="OrderMakeupBtn" runat="server" Text="Order Makeup" />
-        <asp:Button ID="HistoryBtn" runat="server" Text="History" />
+       <!--CUSTOMER-->
+        <asp:Button ID="OrderMakeupBtn" runat="server" Text="Order Makeup" OnClick="OrderMakeupBtn_Click"/>
+        <asp:Button ID="HistoryBtn" runat="server" Text="History" OnClick="HistoryBtn_Click"/>
 
         <!--ADMIN-->
-        <asp:Label ID="HomeBtn" runat="server" Text="Home"></asp:Label>
-        <asp:Label ID="ManageMakeupBtn" runat="server" Text="Manage Makeup"></asp:Label>
-        <asp:Label ID="OrderQueueBtn" runat="server" Text="Order Queue"></asp:Label>
-        <asp:Label ID="TransactionReportBtn" runat="server" Text="Transaction Report"></asp:Label>
+        <asp:Button ID="HomeBtn" runat="server" Text="Home" OnClick="HomeBtn_Click" />
+        <asp:Button ID="ManageMakeupBtn" runat="server" Text="Manage Makeup" OnClick="ManageMakeupBtn_Click"/>
+        <asp:Button ID="OrderQueueBtn" runat="server" Text="Order Queue" OnClick="OrderQueueBtn_Click"/>
+        <asp:Button ID="TransactionReportBtn" runat="server" Text="Transaction Report" OnClick="TransactionReportBtn_Click"/>
 
         <!--BOTH-->
-        <asp:Button ID="ProfileBtn" runat="server" Text="Profile" />
-        <asp:Label ID="LogoutBtn" runat="server" Text="Logout"></asp:Label>
+        <asp:Button ID="ProfileBtn" runat="server" Text="Profile" OnClick="ProfileBtn_Click"/>
+        <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click"/>
+
 
 
         <div>

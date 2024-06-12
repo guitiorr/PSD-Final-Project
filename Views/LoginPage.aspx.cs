@@ -78,7 +78,7 @@ namespace FinalProjectPSD.Views
 
             if (pass == 1)
             {
-
+                Response.Redirect("~/Views/HomePage.aspx");
             }
 
 

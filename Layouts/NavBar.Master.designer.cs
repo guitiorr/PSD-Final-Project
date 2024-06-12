@@ -57,7 +57,7 @@ namespace FinalProjectPSD.Layouts
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HomeBtn;
+        protected global::System.Web.UI.WebControls.Button HomeBtn;
 
         /// <summary>
         /// ManageMakeupBtn control.
@@ -66,7 +66,7 @@ namespace FinalProjectPSD.Layouts
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ManageMakeupBtn;
+        protected global::System.Web.UI.WebControls.Button ManageMakeupBtn;
 
         /// <summary>
         /// OrderQueueBtn control.
@@ -75,7 +75,7 @@ namespace FinalProjectPSD.Layouts
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label OrderQueueBtn;
+        protected global::System.Web.UI.WebControls.Button OrderQueueBtn;
 
         /// <summary>
         /// TransactionReportBtn control.
@@ -84,7 +84,7 @@ namespace FinalProjectPSD.Layouts
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TransactionReportBtn;
+        protected global::System.Web.UI.WebControls.Button TransactionReportBtn;
 
         /// <summary>
         /// ProfileBtn control.
@@ -102,7 +102,7 @@ namespace FinalProjectPSD.Layouts
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LogoutBtn;
+        protected global::System.Web.UI.WebControls.Button LogoutBtn;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

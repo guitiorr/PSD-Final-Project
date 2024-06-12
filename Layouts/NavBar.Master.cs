@@ -43,5 +43,45 @@ namespace FinalProjectPSD.Layouts
 
             }
         }
+
+        protected void HomeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ManageMakeupBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void OrderQueueBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TransactionReportBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ProfileBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void OrderMakeupBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/OrderMakeupPage.aspx");
+        }
+
+        protected void HistoryBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
