@@ -106,13 +106,16 @@
     <Compile Include="Controller\cartController.cs" />
     <Compile Include="Controller\makeupsController.cs" />
     <Compile Include="Controller\transactionDetailController.cs" />
+    <Compile Include="Controller\transactionHeaderController.cs" />
     <Compile Include="Controller\userController.cs" />
     <Compile Include="Factory\cartFactory.cs" />
     <Compile Include="Factory\TransactionDetailFactory.cs" />
+    <Compile Include="Factory\TransactionHeadersFactory.cs" />
     <Compile Include="Factory\userFactory.cs" />
     <Compile Include="Handler\cartHandler.cs" />
     <Compile Include="Handler\makeupsHandler.cs" />
     <Compile Include="Handler\transactionDetailHandler.cs" />
+    <Compile Include="Handler\transactionHeaderHandler.cs" />
     <Compile Include="Handler\userHandler.cs" />
     <Compile Include="Layouts\NavBar.Master.cs">
       <DependentUpon>NavBar.Master</DependentUpon>
@@ -162,6 +165,7 @@
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="Repository\MakeupsRepository.cs" />
     <Compile Include="Repository\TransactionDetailRepository.cs" />
+    <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="Repository\userRepository.cs" />
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

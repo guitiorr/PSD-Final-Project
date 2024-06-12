@@ -1,10 +1,13 @@
 ﻿using FinalProjectPSD.Controller;
 using FinalProjectPSD.Handler;
 using FinalProjectPSD.Models;
+using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Diagnostics;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
@@ -103,11 +106,11 @@ namespace FinalProjectPSD.Views
             if (pass == 1)
             {
                 int CartID = generateCartID();
-                int transactionDetailID = generateTransactionDetailID();
+                //int transactionDetailID = generateTransactionDetailID();
                 int UserID = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
                 cartCont.insertCart(CartID, UserID, makeupID, quantity);
-                transCont.insertTransactionDetail(transactionDetailID, makeupID, quantity);
+                //transCont.insertTransactionDetail(transactionDetailID, makeupID, quantity);
 
                 Response.Redirect("~/Views/OrderMakeupPage.aspx");
             }
@@ -135,13 +138,13 @@ namespace FinalProjectPSD.Views
             }
         }
 
-        private int generateTransactionDetailID()
+        private int generateTransactionHeaderID()
         {
 
-            transactionDetailController transCont = new transactionDetailController();
+            transactionHeaderController transHeadCont = new transactionHeaderController();
 
             int newId = 0;
-            int lastId = transCont.getLastId();
+            int lastId = transHeadCont.getLastId();
 
             if (lastId == 0)
             {
@@ -171,5 +174,70 @@ namespace FinalProjectPSD.Views
             cartCont.clearCart();
             Response.Redirect("~/Views/OrderMakeupPage.aspx");
         }
+
+        protected void CheckoutBtn_Click(object sender, EventArgs e)
+        {
+            
+            transactionHeaderController transHeadCont = new transactionHeaderController();
+            transactionDetailController transDetailCont = new transactionDetailController();
+            userController userCont = new userController();
+
+            foreach (GridViewRow row in CartGV.Rows)
+            {
+                // Ensure the row is a data row
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    int transHeadID = generateTransactionHeaderID();
+                    int userId = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+                    DateTime currentTime = DateTime.Now.Date;
+
+                    string makeupIDText = row.Cells[2].Text;
+                    string quantityText = row.Cells[4].Text;
+                    int makeupID = Convert.ToInt32(makeupIDText);
+                    int quantity = Convert.ToInt32(quantityText);
+
+                    transDetailCont.insertTransactionDetail(transHeadID, makeupID, quantity);
+
+                    transHeadCont.insertTransactionHeader(transHeadID, currentTime, "Unhandled", userId);
+
+                    // Use correct cell indexes
+
+                    //int updateTransHeadID = transHeadCont.findId(transHeadID);
+
+                    // Validate and convert makeupIDText to an integer
+                    /* if (int.TryParse(makeupIDText, out int makeupID) && int.TryParse(quantityText, out int quantity))
+                     {
+                         // Insert transaction detail for each data row
+                         //transDetailCont.insertTransactionDetail(updateTransHeadID, makeupID, quantity);
+                     }
+                     else
+                     {
+                         // Log the invalid input for debugging
+                         //string errorMessage = $"Invalid input in GridView. MakeupID: {makeupIDText}, Quantity: {quantityText}";
+                         // Optionally, add code to log this error to a file or display a message to the user
+                         //throw new FormatException(errorMessage);
+                     }
+                    */
+                    /*try
+                    {
+                        
+                    }
+                    catch (FormatException ex)
+                    {
+                        // Handle the format exception
+                        // You can log the exception or display an error message to the user
+                        Debug.WriteLine("FormatException: " + ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle any other exceptions
+                        Debug.WriteLine("Exception: " + ex.Message);
+                    }*/
+                }
+            }
+        }
+
+
+
     }
 }

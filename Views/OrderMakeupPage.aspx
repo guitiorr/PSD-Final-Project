@@ -33,18 +33,23 @@
 
 
        <asp:GridView ID="CartGV" runat="server" AutoGenerateColumns="False" OnRowDataBound="CartGV_RowDataBound">
-        <Columns>
-            <asp:TemplateField HeaderText="Item No.">
-                <ItemTemplate>
-                    <%# Container.DataItemIndex + 1 %>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" Visible="false"/>
-            <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID" Visible="false" />
-            <asp:BoundField DataField="Makeup.MakeupName" HeaderText="Makeup Name" SortExpression="Makeup.MakeupName" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-        </Columns>
-    </asp:GridView>
+            <Columns>
+                <asp:TemplateField HeaderText="Item No.">
+                    <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" Visible="false"/>
+                <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID"/>
+                <asp:BoundField DataField="Makeup.MakeupName" HeaderText="Makeup Name" SortExpression="Makeup.MakeupName" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+            </Columns>
+        </asp:GridView>
+
+
+    <div>
+        <asp:Button ID="CheckoutBtn" runat="server" Text="Checkout" OnClick="CheckoutBtn_Click"/>
+    </div>
 
 
 

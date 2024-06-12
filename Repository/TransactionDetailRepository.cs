@@ -26,5 +26,7 @@ namespace FinalProjectPSD.Repository
             return (from x in db.TransactionDetails select x.TransactionID).ToList().LastOrDefault();
         }
 
+
+
     }
 }
