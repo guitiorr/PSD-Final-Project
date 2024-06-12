@@ -80,14 +80,17 @@ namespace FinalProjectPSD.Views
             if (string.IsNullOrWhiteSpace(QuantityTB.Text))
             {
                 QuantityErrorLbl.Text = "Quantity cannot be empty";
+                pass = 0;
             }
             else if (!int.TryParse(QuantityTB.Text, out quantity))
             {
                 QuantityErrorLbl.Text = "Quantity must be a valid number";
+                pass = 0;
             }
             else if (quantity <= 0)
             {
                 QuantityErrorLbl.Text = "Quantity must be larger than 0";
+                pass = 0;
             }
             else
             {
