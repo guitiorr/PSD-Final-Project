@@ -181,60 +181,12 @@ namespace FinalProjectPSD.Views
             transactionHeaderController transHeadCont = new transactionHeaderController();
             transactionDetailController transDetailCont = new transactionDetailController();
             userController userCont = new userController();
+            cartController cartCont = new cartController();
+            int userId = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-            foreach (GridViewRow row in CartGV.Rows)
-            {
-                // Ensure the row is a data row
-                if (row.RowType == DataControlRowType.DataRow)
-                {
-                    int transHeadID = generateTransactionHeaderID();
-                    int userId = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
-                    DateTime currentTime = DateTime.Now.Date;
-
-                    string makeupIDText = row.Cells[2].Text;
-                    string quantityText = row.Cells[4].Text;
-                    int makeupID = Convert.ToInt32(makeupIDText);
-                    int quantity = Convert.ToInt32(quantityText);
-
-                    transDetailCont.insertTransactionDetail(transHeadID, makeupID, quantity);
-
-                    transHeadCont.insertTransactionHeader(transHeadID, currentTime, "Unhandled", userId);
-
-                    // Use correct cell indexes
-
-                    //int updateTransHeadID = transHeadCont.findId(transHeadID);
-
-                    // Validate and convert makeupIDText to an integer
-                    /* if (int.TryParse(makeupIDText, out int makeupID) && int.TryParse(quantityText, out int quantity))
-                     {
-                         // Insert transaction detail for each data row
-                         //transDetailCont.insertTransactionDetail(updateTransHeadID, makeupID, quantity);
-                     }
-                     else
-                     {
-                         // Log the invalid input for debugging
-                         //string errorMessage = $"Invalid input in GridView. MakeupID: {makeupIDText}, Quantity: {quantityText}";
-                         // Optionally, add code to log this error to a file or display a message to the user
-                         //throw new FormatException(errorMessage);
-                     }
-                    */
-                    /*try
-                    {
-                        
-                    }
-                    catch (FormatException ex)
-                    {
-                        // Handle the format exception
-                        // You can log the exception or display an error message to the user
-                        Debug.WriteLine("FormatException: " + ex.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle any other exceptions
-                        Debug.WriteLine("Exception: " + ex.Message);
-                    }*/
-                }
-            }
+            transHeadCont.Checkout(userId);
+            cartCont.clearCart();
+            Response.Redirect("~/Views/OrderMakeupPage.aspx");
         }
 
 

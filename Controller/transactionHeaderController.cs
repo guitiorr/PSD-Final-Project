@@ -31,5 +31,10 @@ namespace FinalProjectPSD.Controller
             return transactionHeaderHandler.findId(TransactionID);
         }
 
+        public void Checkout(int userId)
+        {
+            transactionHeaderHandler.Checkout(userId);
+        }
+
     }
 }

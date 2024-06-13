@@ -32,6 +32,11 @@ namespace FinalProjectPSD.Handler
             return TransactionHeaderRepository.findId(TransactionID);
         }
 
+        public static void Checkout(int userId)
+        {
+            TransactionHeaderRepository.Checkout(userId);
+        }
+
 
     }
 }

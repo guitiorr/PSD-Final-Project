@@ -1,7 +1,9 @@
-﻿using FinalProjectPSD.Factory;
+﻿using FinalProjectPSD.Controller;
+using FinalProjectPSD.Factory;
 using FinalProjectPSD.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -40,6 +42,56 @@ namespace FinalProjectPSD.Repository
         public static int findId(int TransactionID)
         {
             return (from x in db.TransactionHeaders where x.TransactionID.Equals(TransactionID) select x.TransactionID).FirstOrDefault();
+        }
+
+        private static int generateTransactionHeaderID()
+        {
+
+            transactionHeaderController transHeadCont = new transactionHeaderController();
+
+            int newId = 0;
+            int lastId = transHeadCont.getLastId();
+
+            if (lastId == 0)
+            {
+                return 600;
+            }
+            else
+            {
+                newId = lastId + 1;
+                return newId;
+            }
+        }
+
+        public static void Checkout(int userId)
+        {
+            var cartItems = db.Carts.Where(c => c.UserID == userId).ToList();
+            if (cartItems.Any())
+            {
+                var transactionHeader = new TransactionHeader
+                {
+                    TransactionID = generateTransactionHeaderID(),
+                    UserID = userId,
+                    TransactionDate = DateTime.Now,
+                    Status = "Unhandled"
+                };
+                db.TransactionHeaders.Add(transactionHeader);
+                db.SaveChanges();
+
+                foreach (var c in cartItems)
+                {
+                    var transactionDetail = new TransactionDetail
+                    {
+                        TransactionID = transactionHeader.TransactionID,
+                        MakeupID = c.MakeupID,
+                        Quantity = c.Quantity
+                    };
+                    db.TransactionDetails.Add(transactionDetail);
+                }
+
+                db.Carts.RemoveRange(cartItems);
+                db.SaveChanges();
+            }
         }
 
     }
