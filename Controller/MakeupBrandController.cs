@@ -14,5 +14,16 @@ namespace FinalProjectPSD.Controller
         {
             return MakeupBrandHandler.getMakeupBrandList();
         }
+
+        public int getLastId()
+        {
+            return MakeupBrandHandler.getLastId();
+        }
+
+        public void insertMakeupBrand(int MakeupBrandID, string MakeupBrandName, int Rating)
+        {
+            MakeupBrandHandler.insertMakeupBrand(MakeupBrandID, MakeupBrandName, Rating);
+        }
+
     }
 }

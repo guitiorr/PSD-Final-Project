@@ -121,7 +121,7 @@ namespace FinalProjectPSD.Views
 
         protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/InsertMakeupBrandPage.aspx");
         }
     }
 }

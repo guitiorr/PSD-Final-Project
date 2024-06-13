@@ -1,4 +1,5 @@
-﻿using FinalProjectPSD.Models;
+﻿using FinalProjectPSD.Factory;
+using FinalProjectPSD.Models;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,16 @@ namespace FinalProjectPSD.Handler
         public static List<MakeupBrand> getMakeupBrandList()
         {
             return MakeupBrandRepository.getMakeupBrandList();
+        }
+
+        public static int getLastId()
+        {
+            return MakeupBrandRepository.getLastId();
+        }
+
+        public static void insertMakeupBrand(int MakeupBrandID, string MakeupBrandName, int Rating)
+        {
+            MakeupBrandRepository.insertMakeupBrand(MakeupBrandID, MakeupBrandName, Rating);
         }
 
     }
