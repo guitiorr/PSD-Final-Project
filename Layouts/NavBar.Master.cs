@@ -16,6 +16,8 @@ namespace FinalProjectPSD.Layouts
                 string userRole = Request.Cookies["userCookie"]["Role"];
                 ProfileBtn.Visible = true;
                 LogoutBtn.Visible = true;
+                LoginBtn.Visible = false;
+                RegisterBtn.Visible = false;
 
 
                 if (userRole.Equals("Customer"))
@@ -39,8 +41,19 @@ namespace FinalProjectPSD.Layouts
                     TransactionReportBtn.Visible = true;
 
                 }
+            }
+            else if(Request.Cookies["userCookie"] == null)
+            {
+                OrderMakeupBtn.Visible = false;
+                HistoryBtn.Visible = false;
 
+                HomeBtn.Visible = false;
+                ManageMakeupBtn.Visible = false;
+                OrderQueueBtn.Visible = false;
+                TransactionReportBtn.Visible = false;
 
+                LoginBtn.Visible = true;
+                RegisterBtn.Visible = true;
             }
         }
 
@@ -89,6 +102,16 @@ namespace FinalProjectPSD.Layouts
         protected void HistoryBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void LoginBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/LoginPage.aspx");
+        }
+
+        protected void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/RegisterPage.aspx");
         }
     }
 }

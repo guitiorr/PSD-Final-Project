@@ -41,25 +41,24 @@
     <div>
         <div>
             <p>Old Password</p>
-            <input type="password" id="oldPasswordInput" runat="server" />
+            <asp:TextBox ID="oldPassTB" runat="server" TextMode="Password" />
             <asp:Label ID="oldPasswordErrorLbl" runat="server" Text=""></asp:Label>
         </div>
         <div>
             <p>New Password</p>
-            <input type="password" id="newPasswordInput" runat="server" />
+            <asp:TextBox ID="newPassTB" runat="server" TextMode="Password" />
             <asp:Label ID="PasswordErrorLbl" runat="server" Text=""></asp:Label>
         </div>
         <div>
             <p>Confirm New Password</p>
-            <input type="password" id="confirmNewPasswordInput" runat="server" />
+            <asp:TextBox ID="ConfirmNewPassTb" runat="server" TextMode="Password" />
             <asp:Label ID="ConfirmPasswordErrorLbl" runat="server" Text=""></asp:Label>
         </div>
-
         <div>
-            <asp:Button ID="ChangePasswordBtn" runat="server" Text="Button" OnClick="ChangePasswordBtn_Click" />
+            <asp:Button ID="ChangePasswordBtn" runat="server" Text="Change Password" OnClick="ChangePasswordBtn_Click" />
         </div>
-
     </div>
+
     
 
 

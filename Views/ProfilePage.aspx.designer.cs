@@ -96,13 +96,13 @@ namespace FinalProjectPSD.Views
         protected global::System.Web.UI.WebControls.Button UpdateProfileBtn;
 
         /// <summary>
-        /// oldPasswordInput control.
+        /// oldPassTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword oldPasswordInput;
+        protected global::System.Web.UI.WebControls.TextBox oldPassTB;
 
         /// <summary>
         /// oldPasswordErrorLbl control.
@@ -114,13 +114,13 @@ namespace FinalProjectPSD.Views
         protected global::System.Web.UI.WebControls.Label oldPasswordErrorLbl;
 
         /// <summary>
-        /// newPasswordInput control.
+        /// newPassTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword newPasswordInput;
+        protected global::System.Web.UI.WebControls.TextBox newPassTB;
 
         /// <summary>
         /// PasswordErrorLbl control.
@@ -132,13 +132,13 @@ namespace FinalProjectPSD.Views
         protected global::System.Web.UI.WebControls.Label PasswordErrorLbl;
 
         /// <summary>
-        /// confirmNewPasswordInput control.
+        /// ConfirmNewPassTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword confirmNewPasswordInput;
+        protected global::System.Web.UI.WebControls.TextBox ConfirmNewPassTb;
 
         /// <summary>
         /// ConfirmPasswordErrorLbl control.

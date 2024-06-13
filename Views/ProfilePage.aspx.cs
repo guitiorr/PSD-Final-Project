@@ -13,19 +13,20 @@ namespace FinalProjectPSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            userController userCont = new userController();
-            int UserID = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
-            string Username = Request.Cookies["userCookie"]["Username"];
             if (!IsPostBack)
             {
-                UsernameTB.Text = Username;
-                EmailInput.Value = userCont.getEmailFromId(UserID);
-                GenderDropDown.SelectedValue = userCont.getGenderFromID(UserID);
-                DateTime dob = userCont.getDOBFromID(UserID);
-                DOBInput.Value = dob.ToString("yyyy-MM-dd");
+                if (Request.Cookies["userCookie"] != null)
+                {
 
-
-                    
+                    userController userCont = new userController();
+                    int UserID = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+                    string Username = Request.Cookies["userCookie"]["Username"];
+                    UsernameTB.Text = Username;
+                    EmailInput.Value = userCont.getEmailFromId(UserID);
+                    GenderDropDown.SelectedValue = userCont.getGenderFromID(UserID);
+                    DateTime dob = userCont.getDOBFromID(UserID);
+                    DOBInput.Value = dob.ToString("yyyy-MM-dd");
+                }
             }
         }
 
@@ -145,9 +146,9 @@ namespace FinalProjectPSD.Views
             int pass = 0;
 
             string realPass = userCont.getPasswordFromUserID(UserID);
-            string oldpass = oldPasswordInput.Value;
-            string newPass = newPasswordInput.Value;
-            string confirmNewPass = confirmNewPasswordInput.Value;
+            string oldpass = oldPassTB.Text;
+            string newPass = newPassTB.Text;
+            string confirmNewPass = ConfirmNewPassTb.Text;
 
             if (oldpass.Equals(realPass))
             {
@@ -176,7 +177,7 @@ namespace FinalProjectPSD.Views
 
             if(pass == 1)
             {
-                userCont.updatePasswordFilterUserID(UserID, newPass);
+                userCont.updatePasswordFilterUserID(UserID, confirmNewPass);
                 Response.Redirect("~/Views/HomePage.aspx");
             }
 
@@ -185,7 +186,7 @@ namespace FinalProjectPSD.Views
 
         private int validatePassword(string Password)
         {
-            if (Password == "")
+            if (string.IsNullOrEmpty(Password))
             {
                 PasswordErrorLbl.Text = "Password must not be empty";
                 return 0;

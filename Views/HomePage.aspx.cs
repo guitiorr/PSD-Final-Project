@@ -17,26 +17,32 @@ namespace FinalProjectPSD.Views
 
             if (!IsPostBack)
             {
-                string userRole = Request.Cookies["userCookie"]["Role"];
-                int id = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+                if (Request.Cookies["userCookie"] != null)
+                {
+                    string userRole = Request.Cookies["userCookie"]["Role"];
+                    int id = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-                RoleLbl.Text = "Role: " + userRole;
-                NameLbl.Text = Request.Cookies["userCookie"]["Username"];
+                    RoleLbl.Text = "Role: " + userRole;
+                    NameLbl.Text = Request.Cookies["userCookie"]["Username"];
 
-                if (userRole.Equals("Customer")){
-                    CustomerGV.Visible = false;
+                    if (userRole.Equals("Customer"))
+                    {
+                        CustomerGV.Visible = false;
+                    }
+                    else
+                    {
+                        List<User> userList = userCont.getUserList();
+                        CustomerGV.Visible = true;
+
+                        CustomerGV.DataSource = userList;
+                        CustomerGV.DataBind();
+                    }
                 }
                 else
                 {
-                    List<User> userList = userCont.getUserList();
-                    CustomerGV.Visible = true;
-
-                    CustomerGV.DataSource = userList;
-                    CustomerGV.DataBind();
+                    RoleLbl.Visible = false;
+                    NameLbl.Visible = false;
                 }
-
-
-
             }
 
         }
