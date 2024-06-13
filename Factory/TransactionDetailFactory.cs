@@ -12,6 +12,9 @@ namespace FinalProjectPSD.Factory
         public static TransactionDetail create(int TransactionID, int MakeupID, int Quantity)
         {
             TransactionDetail transDetail = new TransactionDetail();
+            transDetail.TransactionID = TransactionID;
+            transDetail.MakeupID = MakeupID;
+            transDetail.Quantity = Quantity;
             return transDetail;
         }
 

@@ -40,5 +40,15 @@ namespace FinalProjectPSD.Controller
             makeupsHandler.deleteMakeupFromID(makeupID);
         }
 
+        public void insertMakeup(int MakeupID, string MakeupName, int MakeupWeight, int MakeupTypeID, int MakeupBrandID, int MakeupPrice)
+        {
+            makeupsHandler.insertMakeup(MakeupID, MakeupName, MakeupWeight, MakeupTypeID, MakeupBrandID, MakeupWeight);
+        }
+
+        public int getLastId()
+        {
+            return makeupsHandler.getLastId();
+        }
+
     }
 }

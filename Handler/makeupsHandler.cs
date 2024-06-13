@@ -1,4 +1,5 @@
-﻿using FinalProjectPSD.Models;
+﻿using FinalProjectPSD.Factory;
+using FinalProjectPSD.Models;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,16 @@ namespace FinalProjectPSD.Handler
         public static void deleteMakeupFromID(int makeupID)
         {
             MakeupsRepository.deleteMakeupFromID(makeupID);
+        }
+
+        public static void insertMakeup(int MakeupID, string MakeupName, int MakeupWeight, int MakeupTypeID, int MakeupBrandID, int MakeupPrice)
+        {
+            MakeupsRepository.insertMakeup(MakeupID, MakeupName, MakeupWeight, MakeupTypeID, MakeupBrandID, MakeupWeight);
+        }
+
+        public static int getLastId()
+        {
+            return MakeupsRepository.getLastId();
         }
 
     }

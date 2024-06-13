@@ -108,5 +108,20 @@ namespace FinalProjectPSD.Views
             MakeupDataGV.EditIndex = -1;
             BindGridView();
         }
+
+        protected void InsertMakeupBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/InsertMakeupPage.aspx");
+        }
+
+        protected void InsertMakeupTypeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

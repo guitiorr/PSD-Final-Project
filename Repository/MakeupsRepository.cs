@@ -1,4 +1,5 @@
-﻿using FinalProjectPSD.Models;
+﻿using FinalProjectPSD.Factory;
+using FinalProjectPSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -48,6 +49,18 @@ namespace FinalProjectPSD.Repository
             Makeup makeup = getMakeupFromID(makeupID);
             db.Makeups.Remove(makeup);
             db.SaveChanges();
+        }
+
+        public static void insertMakeup(int MakeupID, string MakeupName, int MakeupWeight, int MakeupTypeID, int MakeupBrandID, int MakeupPrice)
+        {
+            Makeup makeup = makeupFactory.create(MakeupID, MakeupName, MakeupWeight, MakeupTypeID, MakeupBrandID, MakeupWeight);
+            db.Makeups.Add(makeup);
+            db.SaveChanges();
+        }
+
+        public static int getLastId()
+        {
+            return (from x in db.Makeups select x.MakeupID).ToList().LastOrDefault();
         }
 
 
