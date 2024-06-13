@@ -1299,6 +1299,7 @@
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\TransactionDetailsPage.aspx" />
     <Content Include="Views\TransactionHistoryPage.aspx" />
+    <Content Include="Views\UpdateMakeupBrandPage.aspx" />
     <Content Include="Views\UpdateMakeupPage.aspx" />
     <Content Include="Views\UpdateMakeupTypePage.aspx" />
     <Content Include="Views\ViewTransactionsReport.aspx" />
@@ -1472,6 +1473,13 @@
     </Compile>
     <Compile Include="Views\TransactionHistoryPage.aspx.designer.cs">
       <DependentUpon>TransactionHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrandPage.aspx.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrandPage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateMakeupPage.aspx.cs">
       <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>

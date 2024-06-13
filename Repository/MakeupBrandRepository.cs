@@ -29,5 +29,25 @@ namespace FinalProjectPSD.Repository
             db.SaveChanges();
         }
 
+        public static MakeupBrand getMakeupBrandFromID(int id)
+        {
+            return (from x in db.MakeupBrands where x.MakeupBrandID.Equals(id) select x).FirstOrDefault();
+        }
+
+        public static void deleteMakeupBrandFromID(int makeupID)
+        {
+            MakeupBrand makeupBrand = getMakeupBrandFromID(makeupID);
+            db.MakeupBrands.Remove(makeupBrand);
+            db.SaveChanges();
+        }
+
+        public static void updateMakeupBrand(int makeupID, string makeupBrandName, int makeupBrandRating)
+        {
+            MakeupBrand makeupBrand = getMakeupBrandFromID(makeupID);
+            makeupBrand.MakeupBrandName = makeupBrandName;
+            makeupBrand.MakeupBrandRating = makeupBrandRating;
+            db.SaveChanges();
+        }
+
     }
 }

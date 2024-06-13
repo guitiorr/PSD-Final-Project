@@ -110,7 +110,6 @@ namespace FinalProjectPSD.Views
             makeupsController makeupCont = new makeupsController();
             int makeupID = Convert.ToInt32(MakeupDataGV.DataKeys[e.RowIndex].Value);
 
-            // Delete the record from the data source
             makeupCont.deleteMakeupFromID(makeupID);
 
             BindGridView();
@@ -142,7 +141,7 @@ namespace FinalProjectPSD.Views
             if (e.CommandName == "EditMakeup" && e.CommandArgument != null)
             {
                 int makeupID = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("UpdateMakeup.aspx?MakeupID=" + makeupID);
+                Response.Redirect("UpdateMakeupPage.aspx?MakeupID=" + makeupID);
             }
         }
 
@@ -151,7 +150,7 @@ namespace FinalProjectPSD.Views
             if (e.CommandName == "EditMakeupType" && e.CommandArgument != null)
             {
                 int makeupIDType = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("UpdateMakeupType.aspx?makeupIDType=" + makeupIDType);
+                Response.Redirect("UpdateMakeupTypePage.aspx?makeupIDType=" + makeupIDType);
             }
         }
 
@@ -160,8 +159,26 @@ namespace FinalProjectPSD.Views
             MakeupTypeController MTC = new MakeupTypeController();
             int makeupIDType = Convert.ToInt32(MakeupTypeGV.DataKeys[e.RowIndex].Value);
 
-            // Delete the record from the data source
             MTC.deleteMakeupFromID(makeupIDType);
+
+            BindGridView();
+        }
+
+        protected void MakeupBrandGV_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditMakeupBrand" && e.CommandArgument != null)
+            {
+                int makeupIDBrand = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect("UpdateMakeupBrandPage.aspx?makeupIDBrand=" + makeupIDBrand);
+            }
+        }
+
+        protected void MakeupBrandGV_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            MakeupBrandController MBC = new MakeupBrandController();
+            int makeupIDType = Convert.ToInt32(MakeupBrandGV.DataKeys[e.RowIndex].Value);
+
+            MBC.deleteMakeupBrandFromID(makeupIDType);
 
             BindGridView();
         }

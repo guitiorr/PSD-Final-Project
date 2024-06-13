@@ -33,7 +33,7 @@
         </Columns>
     </asp:GridView>
 
-    <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False">
+    <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False" OnRowCommand="MakeupBrandGV_RowCommand" OnRowDeleting="MakeupBrandGV_RowDeleting">
         <Columns>
             <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID" />
             <asp:BoundField DataField="MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrandName" />
