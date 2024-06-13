@@ -104,6 +104,11 @@ namespace FinalProjectPSD.Repository
             return (from x in db.TransactionHeaders where x.TransactionID.Equals(TransactionID) select x).FirstOrDefault();
         }
 
+        public static List<TransactionHeader> getTransactionHeaderList()
+        {
+            return (from x in db.TransactionHeaders select x).ToList();
+        }
+
 
         public static void updateToHandled(int TransactionID)
         {

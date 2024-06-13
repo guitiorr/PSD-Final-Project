@@ -52,5 +52,10 @@ namespace FinalProjectPSD.Controller
             transactionHeaderHandler.updateToHandled(TransactionID);
         }
 
+        public List<TransactionHeader> getTransactionHeaderList()
+        {
+            return transactionHeaderHandler.getTransactionHeaderList();
+        }
+
     }
 }
