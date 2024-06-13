@@ -65,7 +65,7 @@ namespace FinalProjectPSD.Layouts
 
         protected void ManageMakeupBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/ManageMakeupPage.aspx");
         }
 
         protected void OrderQueueBtn_Click(object sender, EventArgs e)

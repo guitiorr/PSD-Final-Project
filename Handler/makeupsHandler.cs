@@ -24,8 +24,21 @@ namespace FinalProjectPSD.Handler
         {
             return MakeupsRepository.getMakeupTypeFromTypeID(ID);
         }
-        
 
+        public static Makeup getMakeupFromID(int makeupID)
+        {
+            return MakeupsRepository.getMakeupFromID(makeupID);
+        }
+
+        public static void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID)
+        {
+            MakeupsRepository.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID);
+        }
+
+        public static void deleteMakeupFromID(int makeupID)
+        {
+            MakeupsRepository.deleteMakeupFromID(makeupID);
+        }
 
     }
 }

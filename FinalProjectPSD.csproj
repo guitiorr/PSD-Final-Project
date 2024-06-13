@@ -97,6 +97,7 @@
     </Content>
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\ManageMakeupPage.aspx" />
     <Content Include="Views\OrderMakeupPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageMakeupPage.aspx.cs">
+      <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageMakeupPage.aspx.designer.cs">
+      <DependentUpon>ManageMakeupPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderMakeupPage.aspx.cs">
       <DependentUpon>OrderMakeupPage.aspx</DependentUpon>

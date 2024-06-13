@@ -25,5 +25,20 @@ namespace FinalProjectPSD.Controller
             return makeupsHandler.getMakeupTypeFromTypeID(ID);
         }
 
+        public Makeup getMakeupFromID(int makeupID)
+        {
+            return makeupsHandler.getMakeupFromID(makeupID);
+        }
+
+        public void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID)
+        {
+            makeupsHandler.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID);
+        }
+
+        public void deleteMakeupFromID(int makeupID)
+        {
+            makeupsHandler.deleteMakeupFromID(makeupID);
+        }
+
     }
 }
