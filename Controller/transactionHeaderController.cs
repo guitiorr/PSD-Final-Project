@@ -42,5 +42,15 @@ namespace FinalProjectPSD.Controller
             return transactionHeaderHandler.getTransactionHeaderListFilterUserID(UserID);
         }
 
+        public TransactionHeader getTransactionHeaderFromID(int TransactionID)
+        {
+            return transactionHeaderHandler.getTransactionHeaderFromID(TransactionID);
+        }
+
+        public void updateToHandled(int TransactionID)
+        {
+            transactionHeaderHandler.updateToHandled(TransactionID);
+        }
+
     }
 }

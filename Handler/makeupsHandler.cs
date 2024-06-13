@@ -50,6 +50,5 @@ namespace FinalProjectPSD.Handler
         {
             return MakeupsRepository.getLastId();
         }
-
     }
 }

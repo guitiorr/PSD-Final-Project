@@ -95,6 +95,7 @@
       <DependentUpon>MakeMeUpzzModel.edmx</DependentUpon>
       <LastGenOutput>MakeMeUpzzModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\HandleTransactionPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\InsertMakeupBrandPage.aspx" />
     <Content Include="Views\InsertMakeupPage.aspx" />
@@ -182,6 +183,13 @@
     <Compile Include="Repository\TransactionDetailRepository.cs" />
     <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="Repository\userRepository.cs" />
+    <Compile Include="Views\HandleTransactionPage.aspx.cs">
+      <DependentUpon>HandleTransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HandleTransactionPage.aspx.designer.cs">
+      <DependentUpon>HandleTransactionPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
