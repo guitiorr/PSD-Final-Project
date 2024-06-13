@@ -49,5 +49,15 @@ namespace FinalProjectPSD.Repository
             db.SaveChanges();
         }
 
+        public static string getBrandNameFromID(int ID)
+        {
+            return (from x in db.MakeupBrands where x.MakeupBrandID.Equals(ID) select x.MakeupBrandName).FirstOrDefault();
+        }
+
+        public static int getBrandRatingFromID(int ID)
+        {
+            return (from x in db.MakeupBrands where x.MakeupBrandID.Equals(ID) select x.MakeupBrandRating).FirstOrDefault();
+        }
+
     }
 }

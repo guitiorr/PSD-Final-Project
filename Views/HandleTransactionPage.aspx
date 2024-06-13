@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:GridView ID="TransHeaderGV" runat="server" AutoGenerateColumns="False" OnRowCommand="TransHeaderGV_RowCommand">
+    <asp:GridView ID="TransHeaderGV" runat="server" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="TransactionID" HeaderText="Transaction ID" SortExpression="TransactionID" />
             <asp:BoundField DataField="TransactionDate" HeaderText="Date" SortExpression="TransactionDate" />

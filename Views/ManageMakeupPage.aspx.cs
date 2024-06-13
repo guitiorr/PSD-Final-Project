@@ -226,8 +226,8 @@ namespace FinalProjectPSD.Views
         {
             Button btnOrder = (Button)sender;
             GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
-            int MakeupBrandID = Convert.ToInt32(btnOrder.CommandArgument);
-            Response.Redirect("UpdateMakeupBrandPage.aspx?MakeupBrandID=" + MakeupBrandID);
+            int makeupIDBrand = Convert.ToInt32(btnOrder.CommandArgument);
+            Response.Redirect("UpdateMakeupBrandPage.aspx?makeupIDBrand=" + makeupIDBrand);
         }
 
         protected void DeleteBtnMakeup_Click(object sender, EventArgs e)

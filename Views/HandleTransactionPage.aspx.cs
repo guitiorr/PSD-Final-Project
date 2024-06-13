@@ -14,6 +14,7 @@ namespace FinalProjectPSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Request.Cookies["userCookie"]["Role"] == "Customer")
             {
 
@@ -24,11 +25,10 @@ namespace FinalProjectPSD.Views
             {
                 if (!IsPostBack)
                 {
+                    TransHeaderGV.Visible = true;
                     transactionHeaderController transHCont = new transactionHeaderController();
-                    userController userCont = new userController();
-                    int userId = userCont.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-                    List<TransactionHeader> transHeadList = transHCont.getTransactionHeaderListFilterUserID(userId);
+                    List<TransactionHeader> transHeadList = transHCont.getTransactionHeaderList();
 
                     TransHeaderGV.DataSource = transHeadList;
                     TransHeaderGV.DataBind();
@@ -44,6 +44,7 @@ namespace FinalProjectPSD.Views
             int transactionID = Convert.ToInt32(btn.CommandArgument);
 
             THC.updateToHandled(transactionID);
+            Response.Redirect("~/Views/HandleTransactionPage.aspx");
         }
 
 

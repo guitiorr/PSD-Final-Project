@@ -12,6 +12,8 @@ namespace FinalProjectPSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MakeupBrandController MCB = new MakeupBrandController();
+
             if (Request.Cookies["userCookie"]["Role"] == "Customer")
             {
 
@@ -21,7 +23,13 @@ namespace FinalProjectPSD.Views
             else
             {
 
+                int MBCID = Convert.ToInt32(Request.QueryString["makeupIDBrand"]);
 
+                if (!IsPostBack)
+                {
+                    MakeupBrandNameTB.Text = MCB.getBrandNameFromID(MBCID);
+                    MakeupBrandRatingTB.Text = MCB.getBrandRatingFromID(MBCID).ToString();
+                }
 
 
             }

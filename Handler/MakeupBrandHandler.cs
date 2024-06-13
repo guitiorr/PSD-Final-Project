@@ -41,5 +41,15 @@ namespace FinalProjectPSD.Handler
             MakeupBrandRepository.updateMakeupBrand(makeupID, makeupBrandName, makeupBrandRating);
         }
 
+        public static string getBrandNameFromID(int ID)
+        {
+            return MakeupBrandRepository.getBrandNameFromID(ID);
+        }
+
+        public static int getBrandRatingFromID(int ID)
+        {
+            return MakeupBrandRepository.getBrandRatingFromID(ID);
+        }
+
     }
 }

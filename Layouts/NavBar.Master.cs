@@ -70,7 +70,7 @@ namespace FinalProjectPSD.Layouts
 
         protected void OrderQueueBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/OrderMakeupPage.aspx");
+            Response.Redirect("~/Views/HandleTransactionPage.aspx");
         }
 
         protected void TransactionReportBtn_Click(object sender, EventArgs e)
