@@ -12,6 +12,8 @@ namespace FinalProjectPSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            MakeupTypeController MTC = new MakeupTypeController();
             if (Request.Cookies["userCookie"]["Role"] == "Customer")
             {
 
@@ -20,9 +22,12 @@ namespace FinalProjectPSD.Views
             }
             else
             {
+                int ID = Convert.ToInt32(Request.QueryString["makeupIDType"]);
 
-
-
+                if (!IsPostBack)
+                {
+                    MakeupTypeNameTB.Text = MTC.getMakeupTypeNameFromID(ID);
+                }
 
             }
         }

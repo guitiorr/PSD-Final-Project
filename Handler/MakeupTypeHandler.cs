@@ -41,6 +41,11 @@ namespace FinalProjectPSD.Handler
             MakeupTypesRepository.updateMakeupType(makeupID, newMakeupTypeName);
         }
 
+        public static string getMakeupTypeNameFromID(int ID)
+        {
+            return MakeupTypesRepository.getMakeupTypeNameFromID(ID);
+        }
+
 
     }
 }

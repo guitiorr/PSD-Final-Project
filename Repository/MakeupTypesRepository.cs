@@ -47,6 +47,10 @@ namespace FinalProjectPSD.Repository
             db.SaveChanges();
         }
 
+        public static string getMakeupTypeNameFromID(int ID)
+        {
+            return (from x in db.MakeupTypes where x.MakeupTypeID.Equals(ID) select x.MakeupTypeName).FirstOrDefault();
+        }
 
     }
 }

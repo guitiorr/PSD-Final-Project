@@ -49,7 +49,6 @@
             <asp:BoundField DataField="MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrandName" />
             <asp:BoundField DataField="MakeupBrandRating" HeaderText="MakeupBrandRating" SortExpression="MakeupBrandRating" />
             <asp:CommandField ButtonType="Button" ShowDeleteButton="false" ShowEditButton="false" />
-            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupBrand"/>
             <asp:TemplateField HeaderText="Edit">
             <ItemTemplate>
                 <asp:Button ID="EditBtnMakeupBrand" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("MakeupBrandID") %>' OnClick="EditBtnMakeupBrand_Click"/>
