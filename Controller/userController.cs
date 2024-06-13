@@ -20,6 +20,11 @@ namespace FinalProjectPSD.Controller
         {
             return userHandler.getPasswordFromUsername(username);
         }
+
+        public string getPasswordFromUserID(int userID)
+        {
+            return userHandler.getPasswordFromUserID(userID);
+        }
         public string checkEmail(string email)
         {
             return userHandler.checkEmail(email);
@@ -35,6 +40,7 @@ namespace FinalProjectPSD.Controller
             return userHandler.getLastId();
         }
 
+
         public int getIdFromUsername(string username)
         {
             return userHandler.getIdFromUsername(username);
@@ -44,9 +50,35 @@ namespace FinalProjectPSD.Controller
         {
             return userHandler.getRoleFromId(id);
         }
+
+        public string getEmailFromId(int id)
+        {
+            return userHandler.getEmailFromId(id);
+        }
+
+        public string getGenderFromID(int id)
+        {
+            return userHandler.getGenderFromID(id);
+        }
+
+        public DateTime getDOBFromID(int id)
+        {
+            return userRepository.getDOBFromID(id);
+        }
+
+        public void updateUser(int UserID, String Username, String Email, String Gender, DateTime UserDOB)
+        {
+            userHandler.updateUser(UserID, Username, Email, Gender, UserDOB)
+        }
+
         public  List<User> getUserList()
         {
             return userHandler.getUserList();
+        }
+
+        public void updatePasswordFilterUserID(int UserID, string Password)
+        {
+            userHandler.updatePasswordFilterUserID(UserID, Password);
         }
 
     }

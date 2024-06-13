@@ -66,7 +66,7 @@ namespace FinalProjectPSD.Layouts
 
         protected void ProfileBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/ProfilePage.aspx");
         }
 
         protected void LogoutBtn_Click(object sender, EventArgs e)

@@ -109,7 +109,7 @@ namespace FinalProjectPSD.Views
             }
             else
             {
-                PasswordErrorLbl.Text = "Password must not be empty";
+                PasswordErrorLbl.Text = "";
                 return 1;
             }
 
