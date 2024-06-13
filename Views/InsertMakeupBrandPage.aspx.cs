@@ -29,12 +29,12 @@ namespace FinalProjectPSD.Views
             MakeupBrandController MBC = new MakeupBrandController();
 
 
-            int newId = 0;
+            int newId = 300;
             int lastId = MBC.getLastId();
 
             if (lastId == 0)
             {
-                return 1;
+                return 300;
             }
             else
             {
@@ -99,8 +99,11 @@ namespace FinalProjectPSD.Views
                 Response.Redirect("~/Views/ManageMakeupPage.aspx");
             }
 
+        }
 
-
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeupPage.aspx");
         }
     }
 }

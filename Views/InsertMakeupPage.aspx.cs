@@ -56,12 +56,12 @@ namespace FinalProjectPSD.Views
             makeupsController MC = new makeupsController();
 
 
-            int newId = 0;
+            int newId = 100;
             int lastId = MC.getLastId();
 
             if (lastId == 0)
             {
-                return 1;
+                return 100;
             }
             else
             {

@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="BackBtn" runat="server" Text="Back" OnClick="BackBtn_Click" />
+        </div>
+        <div>
             <p>MakeupBrandName</p>
             <asp:TextBox ID="MakeupBrandNameTB" runat="server"></asp:TextBox>
             <asp:Label ID="MakeupBrandNameErrorLbl" runat="server" Text=""></asp:Label>

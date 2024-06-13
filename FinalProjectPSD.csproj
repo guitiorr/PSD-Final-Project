@@ -98,6 +98,7 @@
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\InsertMakeupBrandPage.aspx" />
     <Content Include="Views\InsertMakeupPage.aspx" />
+    <Content Include="Views\InsertMakeupTypePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\ManageMakeupPage.aspx" />
     <Content Include="Views\OrderMakeupPage.aspx" />
@@ -118,6 +119,7 @@
     <Compile Include="Factory\cartFactory.cs" />
     <Compile Include="Factory\makeupBrandFactory.cs" />
     <Compile Include="Factory\makeupFactory.cs" />
+    <Compile Include="Factory\MakeupTypeFactory.cs" />
     <Compile Include="Factory\TransactionDetailFactory.cs" />
     <Compile Include="Factory\TransactionHeadersFactory.cs" />
     <Compile Include="Factory\userFactory.cs" />
@@ -200,6 +202,13 @@
     </Compile>
     <Compile Include="Views\InsertMakeupPage.aspx.designer.cs">
       <DependentUpon>InsertMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupTypePage.aspx.cs">
+      <DependentUpon>InsertMakeupTypePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupTypePage.aspx.designer.cs">
+      <DependentUpon>InsertMakeupTypePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
