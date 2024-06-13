@@ -1,4 +1,5 @@
 ﻿using FinalProjectPSD.Handler;
+using FinalProjectPSD.Models;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,11 @@ namespace FinalProjectPSD.Controller
         public void Checkout(int userId)
         {
             transactionHeaderHandler.Checkout(userId);
+        }
+
+        public List<TransactionHeader> getTransactionHeaderListFilterUserID(int UserID)
+        {
+            return transactionHeaderHandler.getTransactionHeaderListFilterUserID(UserID);
         }
 
     }

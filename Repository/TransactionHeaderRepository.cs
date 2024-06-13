@@ -94,5 +94,10 @@ namespace FinalProjectPSD.Repository
             }
         }
 
+        public static List<TransactionHeader> getTransactionHeaderListFilterUserID(int UserID)
+        {
+            return (from x in db.TransactionHeaders where x.UserID.Equals(UserID) select x).ToList();
+        }
+
     }
 }

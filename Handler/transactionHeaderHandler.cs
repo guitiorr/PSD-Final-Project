@@ -37,6 +37,10 @@ namespace FinalProjectPSD.Handler
             TransactionHeaderRepository.Checkout(userId);
         }
 
+        public static List<TransactionHeader> getTransactionHeaderListFilterUserID(int UserID)
+        {
+            return TransactionHeaderRepository.getTransactionHeaderListFilterUserID(UserID);
+        }
 
     }
 }
