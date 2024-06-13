@@ -34,13 +34,14 @@ namespace FinalProjectPSD.Repository
             return (from x in db.Makeups where x.MakeupID.Equals(makeupID) select x).ToList().FirstOrDefault();
         }
 
-        public static void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID)
+        public static void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID, int MakeupPrice)
         {
             Makeup makeup = getMakeupFromID(makeupID);
             makeup.MakeupName = newMakeupName;
             makeup.MakeupWeight = newMakeupWeight;
             makeup.MakeupTypeID = newMakeupTypeID;
             makeup.MakeupBrandID = newMakeupBrandID;
+            makeup.MakeupPrice = MakeupPrice;
             db.SaveChanges();
         }
 

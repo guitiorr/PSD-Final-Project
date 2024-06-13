@@ -9,7 +9,7 @@
         <asp:Button ID="InsertMakeupBrandBtn" runat="server" Text="Insert Makeup Brand" OnClick="InsertMakeupBrandBtn_Click"/>
     </div>
 
-    <asp:GridView ID="MakeupDataGV" runat="server" AutoGenerateColumns="False" OnRowEditing="MakeupDataGV_RowEditing" OnRowUpdating="MakeupDataGV_RowUpdating" OnRowDeleting="MakeupDataGV_RowDeleting" OnRowCancelingEdit="MakeupDataGV_RowCancelingEdit">
+    <asp:GridView ID="MakeupDataGV" runat="server" AutoGenerateColumns="False" OnRowEditing="MakeupDataGV_RowEditing" OnRowUpdating="MakeupDataGV_RowUpdating" OnRowDeleting="MakeupDataGV_RowDeleting" OnRowCancelingEdit="MakeupDataGV_RowCancelingEdit" OnRowCommand="MakeupDataGV_RowCommand">
         <Columns>
             <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID" ReadOnly="True" />
             <asp:BoundField DataField="MakeupName" HeaderText="Makeup Name" SortExpression="MakeupName" />
@@ -19,7 +19,8 @@
             <asp:BoundField DataField="MakeupBrandID" HeaderText="Makeup Brand ID" SortExpression="MakeupBrandID" />
             <asp:BoundField DataField="MakeupBrand.MakeupBrandName" HeaderText="Makeup Brand Name" SortExpression="MakeupBrand.MakeupBrandName" />
             <asp:BoundField DataField="MakeupBrand.MakeupBrandRating" HeaderText="Rating" SortExpression="MakeupBrand.MakeupBrandRating" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
+            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeup" />
         </Columns>
     </asp:GridView>
 

@@ -31,9 +31,9 @@ namespace FinalProjectPSD.Handler
             return MakeupsRepository.getMakeupFromID(makeupID);
         }
 
-        public static void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID)
+        public static void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID, int MakeupPrice)
         {
-            MakeupsRepository.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID);
+            MakeupsRepository.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID, MakeupPrice);
         }
 
         public static void deleteMakeupFromID(int makeupID)
@@ -50,5 +50,6 @@ namespace FinalProjectPSD.Handler
         {
             return MakeupsRepository.getLastId();
         }
+
     }
 }

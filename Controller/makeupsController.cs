@@ -30,9 +30,9 @@ namespace FinalProjectPSD.Controller
             return makeupsHandler.getMakeupFromID(makeupID);
         }
 
-        public void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID)
+        public void updateMakeupData(int makeupID, string newMakeupName, int newMakeupWeight, int newMakeupTypeID, int newMakeupBrandID, int MakeupPrice)
         {
-            makeupsHandler.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID);
+            makeupsHandler.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID, MakeupPrice);
         }
 
         public void deleteMakeupFromID(int makeupID)

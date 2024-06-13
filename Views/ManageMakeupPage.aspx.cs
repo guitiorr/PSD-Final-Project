@@ -78,7 +78,7 @@ namespace FinalProjectPSD.Views
 
         protected void MakeupDataGV_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int makeupID = Convert.ToInt32(MakeupDataGV.DataKeys[e.RowIndex].Value);
+            /*int makeupID = Convert.ToInt32(MakeupDataGV.DataKeys[e.RowIndex].Value);
             makeupsController makeupCont = new makeupsController();
 
             string newMakeupName = ((TextBox)MakeupDataGV.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
@@ -89,7 +89,7 @@ namespace FinalProjectPSD.Views
             makeupCont.updateMakeupData(makeupID, newMakeupName, newMakeupWeight, newMakeupTypeID, newMakeupBrandID);
 
             MakeupDataGV.EditIndex = -1;
-            BindGridView();
+            BindGridView();*/
         }
 
         protected void MakeupDataGV_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -122,6 +122,16 @@ namespace FinalProjectPSD.Views
         protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/InsertMakeupBrandPage.aspx");
+        }
+
+        protected void MakeupDataGV_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditMakeup" && e.CommandArgument != null)
+            {
+                int makeupID = Convert.ToInt32(e.CommandArgument);
+                // Redirect the user to the UpdateMakeup.aspx page with the MakeupID passed as a query string parameter
+                Response.Redirect("UpdateMakeup.aspx?MakeupID=" + makeupID);
+            }
         }
     }
 }
