@@ -1,5 +1,6 @@
 ﻿using FinalProjectPSD.Controller;
 using FinalProjectPSD.Models;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,6 +16,8 @@ namespace FinalProjectPSD.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             makeupsController makeupCont = new makeupsController();
+            MakeupBrandController MBC = new MakeupBrandController();
+            MakeupTypeController MTC = new MakeupTypeController();
 
             if (!IsPostBack)
             {
@@ -38,6 +41,16 @@ namespace FinalProjectPSD.Views
 
                         MakeupDataGV.DataSource = makeupList;
                         MakeupDataGV.DataBind();
+
+                        List<MakeupBrand> makeupBrandList = MBC.getMakeupBrandList();
+
+                        MakeupBrandGV.DataSource = makeupBrandList;
+                        MakeupBrandGV.DataBind();
+
+                        List<MakeupType> makeupTypeList = MTC.getMakeupTypeList();
+
+                        MakeupTypeGV.DataSource = makeupTypeList;
+                        MakeupTypeGV.DataBind();
                     }
 
 
@@ -116,7 +129,7 @@ namespace FinalProjectPSD.Views
 
         protected void InsertMakeupTypeBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/InsertMakeupTypePage.aspx");
         }
 
         protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)
@@ -129,9 +142,28 @@ namespace FinalProjectPSD.Views
             if (e.CommandName == "EditMakeup" && e.CommandArgument != null)
             {
                 int makeupID = Convert.ToInt32(e.CommandArgument);
-                // Redirect the user to the UpdateMakeup.aspx page with the MakeupID passed as a query string parameter
                 Response.Redirect("UpdateMakeup.aspx?MakeupID=" + makeupID);
             }
+        }
+
+        protected void MakeupTypeGV_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditMakeupType" && e.CommandArgument != null)
+            {
+                int makeupIDType = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect("UpdateMakeupType.aspx?makeupIDType=" + makeupIDType);
+            }
+        }
+
+        protected void MakeupTypeGV_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            MakeupTypeController MTC = new MakeupTypeController();
+            int makeupIDType = Convert.ToInt32(MakeupTypeGV.DataKeys[e.RowIndex].Value);
+
+            // Delete the record from the data source
+            MTC.deleteMakeupFromID(makeupIDType);
+
+            BindGridView();
         }
     }
 }

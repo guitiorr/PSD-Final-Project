@@ -28,6 +28,25 @@ namespace FinalProjectPSD.Repository
             db.SaveChanges();
         }
 
+        public static MakeupType getMakeupTypeFromID(int id)
+        {
+            return (from x in db.MakeupTypes where x.MakeupTypeID.Equals(id) select x).FirstOrDefault();
+        }
+
+        public static void deleteMakeupFromID(int makeupID)
+        {
+            MakeupType makeupType = getMakeupTypeFromID(makeupID);
+            db.MakeupTypes.Remove(makeupType);
+            db.SaveChanges();
+        }
+
+        public static void updateMakeupType(int makeupID, string newMakeupTypeName)
+        {
+            MakeupType makeupType = getMakeupTypeFromID(makeupID);
+            makeupType.MakeupTypeName = newMakeupTypeName;
+            db.SaveChanges();
+        }
+
 
     }
 }

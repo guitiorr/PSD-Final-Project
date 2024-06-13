@@ -1300,6 +1300,7 @@
     <Content Include="Views\TransactionDetailsPage.aspx" />
     <Content Include="Views\TransactionHistoryPage.aspx" />
     <Content Include="Views\UpdateMakeupPage.aspx" />
+    <Content Include="Views\UpdateMakeupTypePage.aspx" />
     <Content Include="Views\ViewTransactionsReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1478,6 +1479,13 @@
     </Compile>
     <Compile Include="Views\UpdateMakeupPage.aspx.designer.cs">
       <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupTypePage.aspx.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupTypePage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewTransactionsReport.aspx.cs">
       <DependentUpon>ViewTransactionsReport.aspx</DependentUpon>

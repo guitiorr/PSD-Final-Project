@@ -24,6 +24,27 @@
         </Columns>
     </asp:GridView>
 
+    <asp:GridView ID="MakeupTypeGV" runat="server" AutoGenerateColumns="False" OnRowCommand="MakeupTypeGV_RowCommand" OnRowDeleting="MakeupTypeGV_RowDeleting">
+        <Columns>
+            <asp:BoundField DataField="MakeupTypeID" HeaderText="MakeupTypeID" SortExpression="MakeupTypeID" />
+            <asp:BoundField DataField="MakeupTypeName" HeaderText="MakeupTypeName" SortExpression="MakeupTypeName" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
+            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupType" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID" />
+            <asp:BoundField DataField="MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrandName" />
+            <asp:BoundField DataField="MakeupBrandRating" HeaderText="MakeupBrandRating" SortExpression="MakeupBrandRating" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
+            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupBrand" />
+        </Columns>
+    </asp:GridView>
+
+
+
 
 
 
