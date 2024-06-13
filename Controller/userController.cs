@@ -68,7 +68,7 @@ namespace FinalProjectPSD.Controller
 
         public void updateUser(int UserID, String Username, String Email, String Gender, DateTime UserDOB)
         {
-            userHandler.updateUser(UserID, Username, Email, Gender, UserDOB)
+            userHandler.updateUser(UserID, Username, Email, Gender, UserDOB);
         }
 
         public  List<User> getUserList()

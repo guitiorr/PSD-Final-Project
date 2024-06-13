@@ -67,7 +67,7 @@ namespace FinalProjectPSD.Handler
 
         public static void updateUser(int UserID, String Username, String Email, String Gender, DateTime UserDOB)
         {
-            userRepository.updateUser(UserID, Username, Email, Gender, UserDOB)
+            userRepository.updateUser(UserID, Username, Email, Gender, UserDOB);
         }
 
         public static List<User> getUserList()

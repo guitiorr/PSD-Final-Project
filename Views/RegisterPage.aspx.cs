@@ -74,7 +74,7 @@ namespace FinalProjectPSD.Views
         {
             if (string.IsNullOrEmpty(DOB))
             {
-                DOBErrorLbl.Text = "Please fill DOB";
+                DOBErrorLbl.Text = "Please fill Date of Birth";
                 return 0;
             }
             else
