@@ -19,8 +19,13 @@
             <asp:BoundField DataField="MakeupBrandID" HeaderText="Makeup Brand ID" SortExpression="MakeupBrandID" />
             <asp:BoundField DataField="MakeupBrand.MakeupBrandName" HeaderText="Makeup Brand Name" SortExpression="MakeupBrand.MakeupBrandName" />
             <asp:BoundField DataField="MakeupBrand.MakeupBrandRating" HeaderText="Rating" SortExpression="MakeupBrand.MakeupBrandRating" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
-            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeup" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="false" ShowEditButton="false" />
+            <asp:TemplateField HeaderText="Edit">
+                <ItemTemplate>
+                    <asp:Button ID="EditBtnMakeup" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("MakeupID") %>' OnClick="EditBtnMakeup_Click"/>
+                    <asp:Button ID="DeleteBtnMakeup" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("MakeupID") %>' OnClick="DeleteBtnMakeup_Click"/>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
@@ -28,18 +33,29 @@
         <Columns>
             <asp:BoundField DataField="MakeupTypeID" HeaderText="MakeupTypeID" SortExpression="MakeupTypeID" />
             <asp:BoundField DataField="MakeupTypeName" HeaderText="MakeupTypeName" SortExpression="MakeupTypeName" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
-            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupType" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="false" ShowEditButton="false" />
+            <asp:TemplateField HeaderText="Edit">
+                <ItemTemplate>
+                    <asp:Button ID="EditBtnMakeupType" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("MakeupTypeID") %>' OnClick="EditBtnMakeupType_Click"/>
+                    <asp:Button ID="DeleteBtnMakeupType" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("MakeupTypeID") %>' OnClick="DeleteBtnMakeupType_Click"/>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
     <asp:GridView ID="MakeupBrandGV" runat="server" AutoGenerateColumns="False" OnRowCommand="MakeupBrandGV_RowCommand" OnRowDeleting="MakeupBrandGV_RowDeleting">
         <Columns>
-            <asp:BoundField DataField="MakeupID" HeaderText="MakeupID" SortExpression="MakeupID" />
+            <asp:BoundField DataField="MakeupBrandID" HeaderText="MakeupID" SortExpression="MakeupBrandID" />
             <asp:BoundField DataField="MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrandName" />
             <asp:BoundField DataField="MakeupBrandRating" HeaderText="MakeupBrandRating" SortExpression="MakeupBrandRating" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="false" />
-            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupBrand" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="false" ShowEditButton="false" />
+            <asp:ButtonField ButtonType="Button" Text="Edit" CommandName="EditMakeupBrand"/>
+            <asp:TemplateField HeaderText="Edit">
+            <ItemTemplate>
+                <asp:Button ID="EditBtnMakeupBrand" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("MakeupBrandID") %>' OnClick="EditBtnMakeupBrand_Click"/>
+                <asp:Button ID="DeleteMakeupBrand" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("MakeupBrandID") %>' OnClick="DeleteMakeupBrand_Click"/>
+            </ItemTemplate>
+        </asp:TemplateField>
         </Columns>
     </asp:GridView>
 

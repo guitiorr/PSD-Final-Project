@@ -51,5 +51,30 @@ namespace FinalProjectPSD.Handler
             return MakeupsRepository.getLastId();
         }
 
+        public static string getMakeupNameFromID(int MakeupID)
+        {
+            return MakeupsRepository.getMakeupNameFromID(MakeupID);
+        }
+
+        public static int getMakeupWeightFromID(int MakeupID)
+        {
+            return MakeupsRepository.getMakeupWeightFromID(MakeupID);
+        }
+
+        public static int getMakeupPriceFromID(int MakeupID)
+        {
+            return MakeupsRepository.getMakeupPriceFromID(MakeupID);
+        }
+
+        public static int getMakeupTypeIDFromID(int MakeupID)
+        {
+            return MakeupsRepository.getMakeupTypeIDFromID(MakeupID);
+        }
+
+        public static int getMakeupBrandIDFromID(int MakeupID)
+        {
+            return MakeupsRepository.getMakeupBrandIDFromID(MakeupID);
+        }
+
     }
 }

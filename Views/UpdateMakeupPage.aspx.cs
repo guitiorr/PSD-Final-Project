@@ -12,6 +12,7 @@ namespace FinalProjectPSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            makeupsController MC = new makeupsController();
             if (Request.Cookies["userCookie"]["Role"] == "Customer")
             {
 
@@ -21,7 +22,16 @@ namespace FinalProjectPSD.Views
             else
             {
 
+                if (!IsPostBack)
+                {
+                    int makeupID = Convert.ToInt32(Request.QueryString["MakeupID"]);
 
+                    MakeupNameTB.Text = MC.getMakeupNameFromID(makeupID);
+                    MakeupWeightTB.Text = MC.getMakeupWeightFromID(makeupID).ToString();
+                    MakeupPriceTB.Text = MC.getMakeupPriceFromID(makeupID).ToString();
+                    MakeupTypeIDTB.Text = MC.getMakeupTypeIDFromID(makeupID).ToString();
+                    MakeupBrandIDTB.Text = MC.getMakeupBrandIDFromID(makeupID).ToString(); 
+                }
 
 
             }

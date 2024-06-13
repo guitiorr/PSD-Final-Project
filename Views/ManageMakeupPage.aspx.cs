@@ -67,6 +67,9 @@ namespace FinalProjectPSD.Views
 
         private void BindGridView()
         {
+
+            MakeupBrandController MBC = new MakeupBrandController();
+            MakeupTypeController MTC = new MakeupTypeController();
             makeupsController makeupCont = new makeupsController();
             IQueryable<Makeup> makeupQuery = makeupCont.getMakeupList().AsQueryable();
 
@@ -81,6 +84,16 @@ namespace FinalProjectPSD.Views
 
             MakeupDataGV.DataSource = makeupList;
             MakeupDataGV.DataBind();
+
+            List<MakeupBrand> makeupBrandList = MBC.getMakeupBrandList();
+
+            MakeupBrandGV.DataSource = makeupBrandList;
+            MakeupBrandGV.DataBind();
+
+            List<MakeupType> makeupTypeList = MTC.getMakeupTypeList();
+
+            MakeupTypeGV.DataSource = makeupTypeList;
+            MakeupTypeGV.DataBind();
         }
 
         protected void MakeupDataGV_RowEditing(object sender, GridViewEditEventArgs e)
@@ -140,7 +153,8 @@ namespace FinalProjectPSD.Views
         {
             if (e.CommandName == "EditMakeup" && e.CommandArgument != null)
             {
-                int makeupID = Convert.ToInt32(e.CommandArgument);
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                int makeupID = Convert.ToInt32(MakeupDataGV.DataKeys[rowIndex].Values["MakeupID"]);
                 Response.Redirect("UpdateMakeupPage.aspx?MakeupID=" + makeupID);
             }
         }
@@ -181,6 +195,79 @@ namespace FinalProjectPSD.Views
             MBC.deleteMakeupBrandFromID(makeupIDType);
 
             BindGridView();
+        }
+
+        protected void MakeupTypeGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            /*if (e.CommandName == "EditMakeup" && e.CommandArgument != null)
+            {
+                int makeupID = Convert.ToInt32(e.CommandArgument);
+                // Redirect or do something with the makeupID
+            }*/
+        }
+
+        protected void EditBtnMakeup_Click(object sender, EventArgs e)
+        {
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int makeupID = Convert.ToInt32(btnOrder.CommandArgument);
+            Response.Redirect("UpdateMakeupPage.aspx?MakeupID=" + makeupID);
+        }
+
+        protected void EditBtnMakeupType_Click(object sender, EventArgs e)
+        {
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int MakeupTypeID = Convert.ToInt32(btnOrder.CommandArgument);
+            Response.Redirect("UpdateMakeupPage.aspx?MakeupTypeID=" + MakeupTypeID);
+        }
+
+        protected void EditBtnMakeupBrand_Click(object sender, EventArgs e)
+        {
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int MakeupBrandID = Convert.ToInt32(btnOrder.CommandArgument);
+            Response.Redirect("UpdateMakeupPage.aspx?MakeupBrandID=" + MakeupBrandID);
+        }
+
+        protected void DeleteBtnMakeup_Click(object sender, EventArgs e)
+        {
+
+            makeupsController makeupCont = new makeupsController();
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int makeupID = Convert.ToInt32(btnOrder.CommandArgument);
+
+            makeupCont.deleteMakeupFromID(makeupID);
+
+            BindGridView();
+            Response.Redirect("~/Views/ManageMakeupPage.aspx");
+        }
+
+        protected void DeleteBtnMakeupType_Click(object sender, EventArgs e)
+        {
+            MakeupTypeController MTC = new MakeupTypeController();
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int MakeupTypeID = Convert.ToInt32(btnOrder.CommandArgument);
+
+            MTC.deleteMakeupFromID(MakeupTypeID);
+
+            BindGridView();
+            Response.Redirect("~/Views/ManageMakeupPage.aspx");
+        }
+
+        protected void DeleteMakeupBrand_Click(object sender, EventArgs e)
+        {
+            MakeupBrandController MBC = new MakeupBrandController();
+            Button btnOrder = (Button)sender;
+            GridViewRow row = (GridViewRow)btnOrder.NamingContainer;
+            int MakeupBrandID = Convert.ToInt32(btnOrder.CommandArgument);
+
+            MBC.deleteMakeupBrandFromID(MakeupBrandID);
+
+            BindGridView();
+            Response.Redirect("~/Views/ManageMakeupPage.aspx");
         }
     }
 }

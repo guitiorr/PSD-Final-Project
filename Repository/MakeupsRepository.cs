@@ -64,6 +64,30 @@ namespace FinalProjectPSD.Repository
             return (from x in db.Makeups select x.MakeupID).ToList().LastOrDefault();
         }
 
+        public static string getMakeupNameFromID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID.Equals(MakeupID) select x.MakeupName).FirstOrDefault();
+        }
+
+        public static int getMakeupWeightFromID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID.Equals(MakeupID) select x.MakeupWeight).FirstOrDefault();
+        }
+
+        public static int getMakeupPriceFromID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID.Equals(MakeupID) select x.MakeupPrice).FirstOrDefault();
+        }
+
+        public static int getMakeupTypeIDFromID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID.Equals(MakeupID) select x.MakeupTypeID).FirstOrDefault();
+        }
+
+        public static int getMakeupBrandIDFromID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID.Equals(MakeupID) select x.MakeupBrandID).FirstOrDefault();
+        }
 
     }
 }
