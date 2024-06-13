@@ -22,5 +22,10 @@ namespace FinalProjectPSD.Handler
             return TransactionDetailRepository.getLastId();
         }
 
+        public static List<TransactionDetail> getTransactionDetailsListFromID(int TransactionID)
+        {
+            return TransactionDetailRepository.getTransactionDetailsListFromID(TransactionID);
+        }
+
     }
 }

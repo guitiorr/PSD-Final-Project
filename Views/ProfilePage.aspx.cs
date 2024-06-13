@@ -155,6 +155,11 @@ namespace FinalProjectPSD.Views
                 oldPasswordErrorLbl.Text = "";
                 pass = 1;
             }
+            else if (string.IsNullOrEmpty(oldPassTB.Text))
+            {
+                oldPasswordErrorLbl.Text = "Field must not be empty";
+                pass = 0;
+            }
             else
             {
                 oldPasswordErrorLbl.Text = "Wrong Password!";
@@ -166,16 +171,37 @@ namespace FinalProjectPSD.Views
                 PasswordErrorLbl.Text = "New Password must not be the same as old password!";
                 pass = 0;
             }
+            else if (string.IsNullOrEmpty(newPassTB.Text))
+            {
+                PasswordErrorLbl.Text = "Field must not be empty";
+                pass = 0;
+            }
             else
             {
                 PasswordErrorLbl.Text = "";
                 pass = 1;
             }
 
-            pass = validatePassword(newPass);
-            pass = validateConfirmPassword(newPass, confirmNewPass);
+            if (newPass.Equals(confirmNewPass))
+            {
+                ConfirmPasswordErrorLbl.Text = "";
+                pass = 1;
+            }
+            else if(string.IsNullOrEmpty(ConfirmNewPassTb.Text))
+            {
+                ConfirmPasswordErrorLbl.Text = "Field must not be empty";
+                pass = 0;
+            }
+            else
+            {
+                ConfirmPasswordErrorLbl.Text = "Password doesn't match!";
+                pass = 0;
+            }
 
-            if(pass == 1)
+
+            //pass = validateConfirmPassword(newPass, confirmNewPass);
+
+            if(pass == 1 && !(string.IsNullOrEmpty(ConfirmNewPassTb.Text)) && !(string.IsNullOrEmpty(oldPassTB.Text)) && !(string.IsNullOrEmpty(newPassTB.Text)))
             {
                 userCont.updatePasswordFilterUserID(UserID, confirmNewPass);
                 Response.Redirect("~/Views/HomePage.aspx");

@@ -42,7 +42,7 @@ namespace FinalProjectPSD.Views
 
                 // Perform your custom logic here
                 // Example: redirect to a details page or show a modal with the details
-                Response.Redirect($"TransactionDetails.aspx?TransactionID={transactionID}");
+                Response.Redirect($"TransactionDetailsPage.aspx?TransactionID={transactionID}");
             }
         }
     }

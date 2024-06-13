@@ -27,6 +27,12 @@ namespace FinalProjectPSD.Repository
         }
 
 
+        public static List<TransactionDetail> getTransactionDetailsListFromID(int TransactionID)
+        {
+            return (from x in db.TransactionDetails where x.TransactionID.Equals(TransactionID) select x).ToList();
+        }
+
+
 
     }
 }

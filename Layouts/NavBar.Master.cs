@@ -46,11 +46,12 @@ namespace FinalProjectPSD.Layouts
             {
                 OrderMakeupBtn.Visible = false;
                 HistoryBtn.Visible = false;
-
                 HomeBtn.Visible = false;
                 ManageMakeupBtn.Visible = false;
                 OrderQueueBtn.Visible = false;
                 TransactionReportBtn.Visible = false;
+                ProfileBtn.Visible = false;
+                LogoutBtn.Visible = false;
 
                 LoginBtn.Visible = true;
                 RegisterBtn.Visible = true;
@@ -59,7 +60,7 @@ namespace FinalProjectPSD.Layouts
 
         protected void HomeBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/HomePage.aspx");
         }
 
         protected void ManageMakeupBtn_Click(object sender, EventArgs e)
@@ -101,7 +102,7 @@ namespace FinalProjectPSD.Layouts
 
         protected void HistoryBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/TransactionHistoryPage.aspx");
         }
 
         protected void LoginBtn_Click(object sender, EventArgs e)

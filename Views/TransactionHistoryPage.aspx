@@ -8,10 +8,10 @@
             <asp:BoundField DataField="TransactionID" HeaderText="Transaction ID" SortExpression="TransactionID" />
             <asp:BoundField DataField="TransactionDate" HeaderText="Date" SortExpression="TransactionDate" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-            <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Actions" ShowHeader="True" Text="View Details" />
+            <asp:ButtonField ButtonType="Button" CommandName="ViewDetails" HeaderText="Actions" ShowHeader="True" Text="View Details" />
         </Columns>
-
     </asp:GridView>
+
 
 
 </asp:Content>

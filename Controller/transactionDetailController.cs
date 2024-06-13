@@ -1,4 +1,5 @@
 ﻿using FinalProjectPSD.Handler;
+using FinalProjectPSD.Models;
 using FinalProjectPSD.Repository;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace FinalProjectPSD.Controller
         public int getLastId()
         {
             return transactionDetailHandler.getLastId();
+        }
+
+        public static List<TransactionDetail> getTransactionDetailsListFromID(int TransactionID)
+        {
+            return transactionDetailHandler.getTransactionDetailsListFromID(TransactionID);
         }
 
 
