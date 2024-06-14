@@ -67,7 +67,7 @@ namespace FinalProjectPSD.Views
             }
             else
             {
-                userCookie.Expires = DateTime.Now.AddDays(-1);
+                //userCookie.Expires = DateTime.Now.AddDays(-1);
             }
 
             string userRole = userCont.getRoleFromId(id);
