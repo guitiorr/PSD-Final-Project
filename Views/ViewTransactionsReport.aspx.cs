@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.Util;
 using CrystalDecisions.CrystalReports.Engine;
@@ -45,6 +46,7 @@ namespace FinalProjectPSD.Views
                 hrow["UserID"] = th.UserID;
                 hrow["TransactionDate"] = th.TransactionDate;
                 hrow["Status"] = th.Status;
+                hrow["Grand_Total"] = th.TransactionDetails.Sum(td => td.Quantity * td.Makeup.MakeupPrice);
                 headertable.Rows.Add(hrow);
 
                 foreach(TransactionDetail td in th.TransactionDetails)
@@ -53,6 +55,7 @@ namespace FinalProjectPSD.Views
                     drow["TransactionID"] = td.TransactionID;
                     drow["MakeupID"] = td.TransactionID;
                     drow["Quantity"] = td.Quantity;
+                    drow["Sub_Total"] = td.Quantity * td.Makeup.MakeupPrice;
                     detailtable.Rows.Add(drow);
                 }
 
